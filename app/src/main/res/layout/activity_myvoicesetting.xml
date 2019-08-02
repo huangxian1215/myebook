@@ -1,0 +1,28 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="230dp"
+
+    android:orientation="vertical"
+    android:padding="5dp" >
+    <Button
+        android:id="@+id/btn_speaker"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@android:color/holo_blue_light"
+        android:text="发音人"
+        android:textSize="17sp"
+        android:textColor="@android:color/white"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+    <Button
+        android:id="@+id/btn_voice"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@android:color/holo_blue_light"
+        android:text="其他"
+        android:textSize="17sp"
+        android:textColor="@android:color/white"/>
+
+</LinearLayout>

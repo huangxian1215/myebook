@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">myebook</string>
+    <string name="app_id">5d3d0ccd</string>
+    <string name="idCardLabel">身份证识别</string>
+    <string name="bankCardLabel">银行卡识别</string>
+    <string name="generalLabel">通用文字识别</string>
+    <string name="compose_source">\n</string>
+    <string name="compose_source_en">\n</string>
+</resources>

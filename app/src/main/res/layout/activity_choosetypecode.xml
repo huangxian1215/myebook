@@ -1,0 +1,31 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/ebook"
+    android:padding="5dp" >
+    <TextView
+        android:id="@+id/tv_gbk"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:text="点击进入
+        用户.TXT文件大多数为gbk,可以到PC打开文件后另存为再选择格式"
+        android:background="@color/lightBlue"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black"/>
+    <TextView
+        android:id="@+id/tv_utf8"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:text="点击进入
+        图像识别默认保存.TXT格式为utf8"
+        android:background="@color/lightBlue"/>
+</LinearLayout>

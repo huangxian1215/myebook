@@ -1,0 +1,44 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/ebook"
+    android:padding="5dp" >
+
+    <GridView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:listSelector="@color/transparent"
+        android:horizontalSpacing="3dp"
+        android:verticalSpacing="3dp"
+        android:numColumns="3"
+        android:stretchMode="columnWidth"
+        android:layout_weight="1"
+        android:id="@+id/gv_indexList"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+            <Button
+                android:text="播放"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/bt_play"/>
+            <Button
+                android:text="语音设置"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/bt_set"/>
+            <Button
+                android:text="图像文字识别"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/accurate_basic_button"/>
+
+        </LinearLayout>
+
+
+</LinearLayout>
