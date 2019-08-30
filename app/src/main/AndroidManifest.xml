@@ -18,7 +18,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:name=".MainApplication">
-        <activity android:name=".ChooseTXTTypeCode" android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".EBookActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,7 +26,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".WordsActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
-        <activity android:name=".EBookActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <!--讯飞语音-->
         <activity android:name=".iflytek.MyVoiceSettingActivity" />
         <activity android:name=".iflytek.IflayMainActivity" />

@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -72,11 +73,16 @@ public class WordsActivity extends AppCompatActivity implements OnClickListener 
         try {
             File file = new File(filename);
             FileOutputStream fos = new FileOutputStream(file);
+            OutputStreamWriter osw = new OutputStreamWriter(fos, "GBK");
 //            FileOutputStream fos = this.openFileOutput(filename, MODE_PRIVATE);//获得FileOutputStream
             //将要写入的字符串转换为byte数组
-            byte[]  bytes = mWords.getBytes();
-            fos.write(bytes);//将byte数组写入文件
-            fos.close();//关闭文件输出流
+            //byte[]  bytes = mWords.getBytes();
+//            fos.write(bytes);//将byte数组写入文件
+//            fos.close();//关闭文件输出流
+            osw.write(mWords);
+            osw.flush();
+            osw.close();
+            fos.close();
             } catch (Exception e) {
             e.printStackTrace();
         }

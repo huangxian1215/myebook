@@ -34,6 +34,8 @@ import com.example.myebook.util.VirtureUtil.onLongClickItemListener;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 public class EBookActivity extends AppCompatActivity implements onPlayVoiceListener, OnClickListener, onClickItemListener, onLongClickItemListener{
@@ -121,8 +123,9 @@ public class EBookActivity extends AppCompatActivity implements onPlayVoiceListe
             startActivity(intent);
         }else{
             //删除文件
+            int pgLen = mPgList.size();
             for(int n = 0; n < selectCheck.size(); n++){
-                if(selectCheck.size() < mPgList.size()){
+                if(selectCheck.size() <= pgLen){
                     String name = Environment.getExternalStorageDirectory()+"/myebook/" + selectCheck.get(n);
                     File file = new File(name);
                     if(file.exists()){
@@ -328,9 +331,10 @@ public class EBookActivity extends AppCompatActivity implements onPlayVoiceListe
                     PageIndex pg = new PageIndex();
                     pg.title = mfiles.get(n);
                     pg.isCheck = false;
+                    pg.index = String.valueOf(n);
                     mPgList.add(pg);
                 }
-                if(mfiles.size() == 0) return;
+//                if(mfiles.size() == 0) return;
                 
                 madapter.freshListIndex(mPgList);
                 madapter.notifyDataSetChanged();
@@ -341,7 +345,21 @@ public class EBookActivity extends AppCompatActivity implements onPlayVoiceListe
 
     public String getFileContent(String filename){
         filename = Environment.getExternalStorageDirectory()+"/myebook/" + filename;
-        File file = new File(filename);
+        String code = "GBK";
+        try{
+            InputStream inputStream = new FileInputStream(filename);
+            byte[] head = new byte[3];
+            inputStream.read(head);
+            if (head[0] == -1 && head[1] == -2) {
+                code = "Unicode";
+            }
+            if(head[0]==-17 && head[1]==-69 && head[2] ==-65) {
+                code = "utf-8";
+            }
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+
         String str = "";
         StringBuilder sb = new StringBuilder("");
         try {
@@ -351,7 +369,7 @@ public class EBookActivity extends AppCompatActivity implements onPlayVoiceListe
             int len = inputStream.read(buffer);
             //读取文件内容
             while(len > 0){
-                sb.append(new String(buffer,0,len, MainApplication.gCode));
+                sb.append(new String(buffer,0,len, code));
                 //继续将数据放到buffer中
                 len = inputStream.read(buffer);
             }

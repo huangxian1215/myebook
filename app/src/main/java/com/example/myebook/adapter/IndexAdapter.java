@@ -58,7 +58,7 @@ public class IndexAdapter extends BaseAdapter implements OnClickListener, OnLong
         }
 
 
-        holder.tv_name.setText(mData.get(position).title);
+        holder.tv_name.setText(mData.get(position).index);
 
         holder.cb_check.setChecked(mData.get(position).isCheck);
         if(deleteMode){
